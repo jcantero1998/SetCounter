@@ -12,7 +12,7 @@ export const getEjercicios = async (req, res) => {
 export const getEjercicio = async (req, res) => {
   try {
     const { id } = req.params;
-    const [rows] = await pool.query("SELECT * FROM ejercicio WHERE id = ?", [
+    const [rows] = await pool.query("SELECT * FROM ejercicios WHERE id = ?", [
       id,
     ]);
 
@@ -29,7 +29,7 @@ export const getEjercicio = async (req, res) => {
 export const deleteEjercicio = async (req, res) => {
   try {
     const { id } = req.params;
-    const [rows] = await pool.query("DELETE FROM ejercicio WHERE id = ?", [id]);
+    const [rows] = await pool.query("DELETE FROM ejercicios WHERE id = ?", [id]);
 
     if (rows.affectedRows <= 0) {
       return res.status(404).json({ message: "Ejercicio no encontrada" });
@@ -45,7 +45,7 @@ export const createEjercicio = async (req, res) => {
   try {
     const { rutina, nombre, descripcion, color, archivado, creador, series, repeticiones, peso, totaloporlado } = req.body;
     const [rows] = await pool.query(
-      "INSERT INTO ejercicio (rutina, nombre, descripcion, color, archivado, creador, series, repeticiones, peso, totaloporlado) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
+      "INSERT INTO ejercicios (rutina, nombre, descripcion, color, archivado, creador, series, repeticiones, peso, totaloporlado) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
       [rutina, nombre, descripcion, color, archivado, creador, series, repeticiones, peso, totaloporlado]
     );
     res.status(201).json({ id: rows.insertId, rutina, nombre, descripcion, color, archivado, creador, series, repeticiones, peso, totaloporlado });
@@ -60,7 +60,7 @@ export const updateEjercicio = async (req, res) => {
     const { rutina, nombre, descripcion, color, archivado, creador, series, repeticiones, peso, totaloporlado } = req.body;
 
     const [result] = await pool.query(
-      "UPDATE ejercicio SET rutina, nombre = IFNULL(?, rutina, nombre), descripcion, color, archivado, creador, series, repeticiones, peso, totaloporlado = IFNULL(?, descripcion, color, archivado, creador, series, repeticiones, peso, totaloporlado) WHERE id = ?",
+      "UPDATE ejercicios SET rutina, nombre = IFNULL(?, rutina, nombre), descripcion, color, archivado, creador, series, repeticiones, peso, totaloporlado = IFNULL(?, descripcion, color, archivado, creador, series, repeticiones, peso, totaloporlado) WHERE id = ?",
       [rutina, nombre, descripcion, color, archivado, creador, series, repeticiones, peso, totaloporlado, id]
     );
 

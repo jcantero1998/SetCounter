@@ -37,7 +37,7 @@ export const deleteRutina = async (req, res) => {
 
     res.sendStatus(204);
   } catch (error) {
-    return res.status(500).json({ message: "Error al eliminar rutinas" });
+    return res.status(500).json({ message: "Error al eliminar rutina" });
   }
 };
 
@@ -50,7 +50,8 @@ export const createRutina = async (req, res) => {
     );
     res.status(201).json({ id: rows.insertId, nombre, descripcion, color, archivado, creador });
   } catch (error) {
-    return res.status(500).json({ message: "Error al crear rutinas" });
+    console.log(error)
+    return res.status(500).json({ message: "Error al crear rutina" });
   }
 };
 
@@ -60,7 +61,7 @@ export const updateRutina = async (req, res) => {
     const { nombre, descripcion, color, archivado, creador } = req.body;
 
     const [result] = await pool.query(
-      "UPDATE rutinas SET nombre = IFNULL(?, nombre), descripcion, color, archivado, creador = IFNULL(?, descripcion, color, archivado, creador) WHERE id = ?",
+      'UPDATE rutinas SET nombre = IFNULL(?, nombre), descripcion = IFNULL(?, descripcion), color = IFNULL(?, color), archivado = IFNULL(?, archivado), creador = IFNULL(?, creador) WHERE id = ?',
       [nombre, descripcion, color, archivado, creador, id]
     );
 

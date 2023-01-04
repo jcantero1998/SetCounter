@@ -4,6 +4,7 @@ import {
   DB_HOST,
   DB_PASSWORD,
   DB_USER,
+  DB_PORT
 } from "./config.js";
 
 export const pool = createPool({
@@ -11,7 +12,8 @@ export const pool = createPool({
   user: DB_USER,
   password: DB_PASSWORD,
   database: DB_DATABASE,
-  ssl: {
-    rejectUnauthorized: false
-  }
+  port: DB_PORT
+  // ssl: {
+  //   rejectUnauthorized: false
+  // }
 });
