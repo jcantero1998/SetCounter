@@ -45,7 +45,7 @@ export const createEjercicio = async (req, res) => {
   try {
     const { rutina, nombre, descripcion, color, archivado, creador, series, repeticiones, peso, totaloporlado } = req.body;
     const [rows] = await pool.query(
-      "INSERT INTO ejercicio (rutina, nombre, descripcion, color, archivado, creador, series, repeticiones, peso, totaloporlado) VALUES (?, ?)",
+      "INSERT INTO ejercicio (rutina, nombre, descripcion, color, archivado, creador, series, repeticiones, peso, totaloporlado) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
       [rutina, nombre, descripcion, color, archivado, creador, series, repeticiones, peso, totaloporlado]
     );
     res.status(201).json({ id: rows.insertId, rutina, nombre, descripcion, color, archivado, creador, series, repeticiones, peso, totaloporlado });

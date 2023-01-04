@@ -45,7 +45,7 @@ export const createRutina = async (req, res) => {
   try {
     const { nombre, descripcion, color, archivado, creador } = req.body;
     const [rows] = await pool.query(
-      "INSERT INTO rutinas (nombre, descripcion, color, archivado, creador) VALUES (?, ?)",
+      "INSERT INTO rutinas (nombre, descripcion, color, archivado, creador) VALUES (?, ?, ?, ?, ?)",
       [nombre, descripcion, color, archivado, creador]
     );
     res.status(201).json({ id: rows.insertId, nombre, descripcion, color, archivado, creador });

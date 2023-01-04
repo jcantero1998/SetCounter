@@ -1,5 +1,7 @@
 
---DATABASE CREADA EN https://app.planetscale.com/jcantero1998/setcounterdb
+--DATABASE CREADA EN planetscale y en railway (El Back está desplegado en railway):
+-- https://app.planetscale.com/jcantero1998/setcounterdb
+-- https://railway.app/project/d291fdce-e33f-47f8-8cb2-f6324f75ce11/plugin/e2722933-f107-4a10-a92e-8673669b5f3b/data
 
 -- CREATE DATABASE IF NOT EXISTS setcounterdb;
 
