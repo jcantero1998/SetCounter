@@ -10,18 +10,18 @@ import {
 const router = Router();
 
 // GET All Rutinas
-router.get("/rutinas", getRutinas);
+router.get("/get", getRutinas);
 
 // GET Rutina
-router.get("/rutinas/:id", getRutina);
+router.get("/get/:id", getRutina);
 
 // DELETE Rutina
-router.delete("/rutinas/:id", deleteRutina);
+router.delete("/delete/:id", deleteRutina);
 
 // INSERT Rutina
-router.post("/rutinas", createRutina);
+router.post("/post", createRutina);
 
 // UPDATE Rutina
-router.patch("/rutinas/:id", updateRutina);
+router.patch("/patch/:id", updateRutina);
 
 export default router;

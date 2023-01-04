@@ -50,7 +50,6 @@ export const createRutina = async (req, res) => {
     );
     res.status(201).json({ id: rows.insertId, nombre, descripcion, color, archivado, creador });
   } catch (error) {
-    console.log(error)
     return res.status(500).json({ message: "Error al crear rutina" });
   }
 };

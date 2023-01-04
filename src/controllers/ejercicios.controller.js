@@ -60,7 +60,7 @@ export const updateEjercicio = async (req, res) => {
     const { rutina, nombre, descripcion, color, archivado, creador, series, repeticiones, peso, totaloporlado } = req.body;
 
     const [result] = await pool.query(
-      "UPDATE ejercicios SET rutina, nombre = IFNULL(?, rutina, nombre), descripcion, color, archivado, creador, series, repeticiones, peso, totaloporlado = IFNULL(?, descripcion, color, archivado, creador, series, repeticiones, peso, totaloporlado) WHERE id = ?",
+      "UPDATE ejercicios SET rutina = IFNULL(?, rutina), nombre = IFNULL(?, nombre), descripcion = IFNULL(?, descripcion), color = IFNULL(?, color), archivado = IFNULL(?, archivado), creador = IFNULL(?, creador), series = IFNULL(?, series), repeticiones = IFNULL(?, repeticiones), peso = IFNULL(?, peso), totaloporlado = IFNULL(?, totaloporlado) WHERE id = ?",
       [rutina, nombre, descripcion, color, archivado, creador, series, repeticiones, peso, totaloporlado, id]
     );
 

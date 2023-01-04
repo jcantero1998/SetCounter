@@ -10,18 +10,18 @@ import {
 const router = Router();
 
 // GET All Ejercicios
-router.get("/ejercicios", getEjercicios);
+router.get("/get", getEjercicios);
 
-// GET Rutina
-router.get("/ejercicios/:id", getEjercicio);
+// GET Ejercicio
+router.get("/get/:id", getEjercicio);
 
-// DELETE Rutina
-router.delete("/ejercicios/:id", deleteEjercicio);
+// DELETE Ejercicio
+router.delete("/delete/:id", deleteEjercicio);
 
-// INSERT Rutina
-router.post("/ejercicios", createEjercicio);
+// INSERT Ejercicio
+router.post("/post", createEjercicio);
 
-// UPDATE Rutina
-router.patch("/ejercicios/:id", updateEjercicio);
+// UPDATE Ejercicio
+router.patch("/patch/:id", updateEjercicio);
 
 export default router;
